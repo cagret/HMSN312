@@ -19,18 +19,19 @@ int main(int argc, char* argv[]){
 	
 	vector<string> protFiles;
 	protFiles.push_back("IIPAGIHNERAIKPKRGAPGHAIPRAGARPPNGRRARGIKAHVAE"); //test
-	protFiles.push_back("IGARAKPNREIIKPGHAKKGIRAVWY");
+	protFiles.push_back("IGARAKPNREIIKPGHAKKGIRAVWY"); //test
 	
 	//get db proteins
-	vector<Prot> proteins;//vector of proteins
-	for(unsigned int i=0; i < protFiles.size(); i++){
-		proteins.emplace_back(Prot(protFiles[i]));
-	}
+	const unsigned int nb_prot=protFiles.size();;
+	vector<Prot> proteins (nb_prot, Prot());;//vector of proteins
 
 	map<float, vector<Peptide> > peptides; //hash table of all possibles peptides sort by keys: [float:weight] => {Prot*:protein, u_int:posB, u_int:posE}
 
 	//generate for each db proteins their peptides
-	for(unsigned int i=0; i < proteins.size(); i++){
+	for(unsigned int i=0; i < nb_prot; i++){
+		//Set correct file
+		proteins[i].set_file(protFiles[i]);
+
 		//Get peptide with a misscleavage of 0
 		vector<pair<unsigned int, float> > peps = proteins[i].cut_misscleavage_0();
 		

@@ -12,6 +12,7 @@ class Prot
 		Prot();
 		Prot(const std::string& file);
 
+		void set_file(std::string& file);
 		std::string get_file();
 
 		std::vector<std::pair<unsigned int, float> > cut_misscleavage_0(); //peptides_with_miss_cleavage_0 (pos_start, weight);

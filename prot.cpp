@@ -46,6 +46,15 @@ using namespace std;
 
 /*
  * Type: method (Prot)
+ * Name: set_file
+ * Description: Set the file path of the protein
+ * Parameters: null
+ * Return: string protein_file_path
+*/
+void Prot::set_file(std::string& file){m_file=file;}
+
+/*
+ * Type: method (Prot)
  * Name: get_file
  * Description: Return the file path of the protein
  * Parameters: null
