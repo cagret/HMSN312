@@ -17,7 +17,7 @@ int main( int argc, char **argv ){
  
     string line, name, content;
     while( getline( input, line ).good() ){
-        if( line.empty() || line[0] == '>' || ';' ){ // Identifier marker
+        if( line.empty() || line[0] == '>' ){ // Identifier marker
             if( !name.empty() ){ // Print out what we read from the last entry
                 cout << name << " : " << content << endl;
                 name.clear();
