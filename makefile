@@ -5,7 +5,7 @@ EXEC=test
 
 all: main
 
-main: prot.o main.o
+main: parseXml.o prot.o main.o
 	@echo -e "\n[=== Executable ===]"
 	$(CC) -o $(EXEC) $^ $(LDFLAGS)
 

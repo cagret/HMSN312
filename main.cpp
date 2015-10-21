@@ -3,6 +3,7 @@
 #include <utility>
 
 #include "prot.hpp"
+#include "parseXml.hpp"
 
 using namespace std;
 
@@ -87,5 +88,12 @@ int main(int argc, char* argv[]){
 	}
 	//Test-end
 	
+	//Test xml
+	cout << endl << "XML parsing:" << endl;
+	string identifications_file("identifications.xml");
+	parseXML(identifications_file);
+
+
+
 	return 0;
 }
