@@ -4,7 +4,7 @@
 #include <string>
 
 
-float extractPeaks(std::string& line);
+double extractPeaks(std::string line);
 void parseXML(std::string& file);
 
 #endif

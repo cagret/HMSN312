@@ -1,12 +1,21 @@
 #include <iostream>
+#include <iomanip> //setprecision
 #include <fstream>
 #include <string>
 #include <vector>
 #include <regex>
+#include <locale>
 
 #include "parseXml.hpp"
 
 using namespace std;
+
+double  extractPeaks(string line){
+	size_t i=0;
+	while(i < line.size() && (isdigit(line[i]) || line[i]=='.')){i++;}
+	
+	return 	stod(line.substr(0, i));
+}
 
 void parseXML(string& file){
 	string idProt, seq, charge;
@@ -40,7 +49,8 @@ void parseXML(string& file){
 			}
 			//Else read peak
 			else{
-				cout << "\t" << line << endl;
+				double peak = extractPeaks(line);
+				cout << "\t" << setprecision(10) << peak << endl;
 			}
 		}
 		else{
@@ -62,10 +72,3 @@ void parseXML(string& file){
 
 }
 
-float  extractPeaks(string& line){
-	float peak=0;
-
-	//TODO
-
-	return 	peak;
-}
